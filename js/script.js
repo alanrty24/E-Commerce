@@ -13,9 +13,14 @@ const crearElemento = (element) => {
 
 // * Busca la data en la api
 async function buscaData(url) {
-  const result = await fetch(url);
-  const data = await result.json();
-  await processData(data);
+  try {
+    const result = await fetch(url);
+    const data = await result.json();
+    await processData(data);
+  } catch (error) {
+    alert("Por favor comunicarse con el equipo de desarrollo");
+    return
+  }
 }
 
 // * Procesa la data y busca las categorias para ordenar la información
