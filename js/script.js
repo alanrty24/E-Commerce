@@ -37,14 +37,13 @@ async function processData(data) {
   
   categories = new Set(categories);
   
-  console.log(typeof(categories));
-  
   insertCategories(categories);
 }
 
 // * Agg las categorias al dom
 function insertCategories(categories) {
   categories.forEach((categorie) => {
+    
     const itemCategorie = crearElemento("li");
     itemCategorie.classList.add("item");
     itemCategorie.textContent = categorie;
