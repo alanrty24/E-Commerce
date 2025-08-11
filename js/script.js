@@ -1,8 +1,8 @@
 const listCategories = document.querySelector("#listCategories");
 const containerCards = document.querySelector("#containerCards");
-let products = [];
+let products = {};
 let categories = ["All"];
-const urls = "https://fakestoreapi.com/products";
+const urls = 'https://dummyjson.com/products';
 
 // * Funciones
 
@@ -17,23 +17,28 @@ async function buscaData(url) {
     const result = await fetch(url);
     const data = await result.json();
     await processData(data);
+    // console.log(typeof(data));
+    
   } catch (error) {
-    alert("Por favor comunicarse con el equipo de desarrollo");
+    console.error(error);
+    alert(error);
     return
   }
 }
 
 // * Procesa la data y busca las categorias para ordenar la información
 async function processData(data) {
-  products = await data.map((inf) => inf);
+  products = Object.entries(data.products);
   let i = 1;
-
-  categories = await products.map((product) => {
+  console.log(products);
+  categories = await products.map(([key, product]) => {
     return product.category;
   });
-
+  
   categories = new Set(categories);
-
+  
+  console.log(typeof(categories));
+  
   insertCategories(categories);
 }
 
@@ -66,7 +71,7 @@ function borrarContenido() {
 // *  busca por categoria
 function buscarPorCategoria(e) {
   const categoria = e.target.textContent;
-  products.forEach((product) => {
+  products.forEach(([key,product]) => {
     if (product.category === categoria) {
       crearCard(product);
     } else if (categoria === "All") {
@@ -82,12 +87,12 @@ function crearCard(product) {
   card.innerHTML = `
        <div class="contImg">
             <img
-              src="${product.image}"
-              alt="${product.title}"
+              src="${product.images[0]}"
+              alt="${product.brand}"
               class="img"
             />
           </div>
-          <h3 class="title">${product.title}</h3>
+          <h3 class="title">${product.brand}</h3>
           <h3 class="price">$${product.price}</h3>
         </div>
     `;
