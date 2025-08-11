@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  color: var(--color-letras);
+}
+
+:root {
+  font-size: 20px;
+
+  /* * Variables */
+  --color-fondo: white;
+  --color-letras: #065084;
+  --color-botones: #00caff;
+}
+
+body {
+  width: 100vw;
+  padding: 2rem 4rem;
+  background-color: var(--color-fondo);
+  display: grid;
+  grid-template-rows: 30vh 1fr 20vh;
+  grid-template-areas:
+    "header"
+    "main"
+    "foot";
+  gap: 2rem;
+  overflow-x: hidden;
+}
+
+/* TODO: Header */
+header {
+  grid-area: header;
+  display: grid;
+  grid-template-rows: 40% 1fr;
+}
+
+/* TODO: containerLogo  */
+.containerLogo {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+/* ?: logo */
+.containerLogo .logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+/* * Icono del logo */
+.containerLogo .logo .icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  background-color: var(--color-letras);
+  color: var(--color-fondo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+
+/* * Titulo */
+.containerLogo .logo .title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* ?: Lista de iconos */
+.containerLogo .list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.containerLogo .list .item {
+  font-size: 1.5rem;
+}
+
+.containerLogo .list,
+.item i {
+  transition: all 0.5s linear;
+
+  &:hover {
+    transition: all 0.5s linear;
+    color: var(--color-botones);
+    cursor: pointer;
+  }
+}
+
+/* TODO: search */
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ? Contenedor de la busqueda */
+.search .contBusqueda {
+  width: 35%;
+  height: 50%;
+  border: solid 0.1rem var(--color-letras);
+  border-radius: 2rem;
+  display: grid;
+  grid-template-columns: 5% 1fr 10%;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
+
+  position: relative;
+}
+
+/* * input de busqueda */
+.search .contBusqueda input {
+  height: 100%;
+  border: none;
+  background-color: var(--color-fondo);
+  outline: none;
+
+  &::placeholder {
+    color: var(--color-letras);
+  }
+}
+
+/* * Button de busqueda */
+.search .contBusqueda button {
+  height: 100%;
+  width: 15%;
+  border-radius: 2rem;
+  position: absolute;
+  right: 0;
+  border: none;
+  background-color: var(--color-letras);
+  transition: all 0.5s linear;
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.5s linear;
+    background-color: var(--color-botones);
+  }
+}
+
+/* * Icono de boton  */
+.search .contBusqueda button .icon {
+  color: var(--color-fondo);
+}
+/* TODO: Main */
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-rows: 15% 1fr;
+  gap: 1rem;
+}
+
+/* ?: Lista de Categorias */
+main .list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+main .list .item {
+  padding: 0.5rem;
+  transition: all 0.5s linear;
+
+  &:hover {
+    transition: all 0.5s linear;
+    cursor: pointer;
+    background-color: var(--color-letras);
+    color: white;
+    border-radius: 2rem;
+  }
+}
+
+/* ?: Lista de Cards */
+main .containerCards {
+  display: flex; 
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* * Card */
+main .containerCards .card{
+    overflow: hidden;
+    width: 15rem;
+    height: 17.5rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-rows: 60% 25% 15%;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+    "img"
+    "title"
+    "price";
+    /* gap: 1rem;s */
+    box-shadow: 0px 5px 10px 1px grey;
+    position: relative;
+}
+
+/* * Tamaño de la imagen */
+main .containerCards .card .contImg{
+    grid-area: img;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    background-color: var(--color-letras);
+}
+
+/* Imagen dde la card */
+main .containerCards .card .contImg img{
+    height: 80%;
+}
+
+main .containerCards .card .title{
+    grid-area: title;
+    margin: 0;
+    font-size: .8rem;
+    padding: .5rem;
+}
+
+main .containerCards .card .price{
+    grid-area: price;
+    margin: 0;
+    text-align: center;
+}
+/* TODO: Footer */
+footer {
+  grid-area: foot;
+}
