@@ -18,7 +18,7 @@ body {
   padding: 2rem 4rem;
   background-color: var(--color-fondo);
   display: grid;
-  grid-template-rows: 30vh 1fr 20vh;
+  grid-template-rows: 20vh 1fr 20vh;
   grid-template-areas:
     "header"
     "main"
@@ -31,7 +31,7 @@ body {
 header {
   grid-area: header;
   display: grid;
-  grid-template-rows: 40% 1fr;
+  grid-template-rows: 30% 1fr;
 }
 
 /* TODO: containerLogo  */
