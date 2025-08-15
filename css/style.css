@@ -101,8 +101,8 @@ header {
 
 /* ? Contenedor de la busqueda */
 .search .contBusqueda {
-  width: 35%;
-  height: 50%;
+  width: 50%;
+  height: 4rem;
   border: solid 0.1rem var(--color-letras);
   border-radius: 2rem;
   display: grid;
@@ -130,7 +130,7 @@ header {
 /* * Button de busqueda */
 .search .contBusqueda button {
   height: 100%;
-  width: 15%;
+  width: 4rem;
   border-radius: 2rem;
   position: absolute;
   right: 0;
@@ -190,17 +190,18 @@ main .list .item {
 
 /* ?: Lista de Cards */
 main .containerCards {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(18rem, 1fr));
   gap: 1rem;
-  flex-wrap: wrap;
+  /* display: flex;
+  justify-content: center;
+  flex-wrap: wrap; */
 }
 
 /* * Card */
 main .containerCards .card {
   overflow: hidden;
-  width: 15rem;
-  height: 17.5rem;
   border-radius: 1rem;
   display: grid;
   grid-template-rows: 60% 25% 15%;
@@ -237,7 +238,8 @@ main .containerCards .card .contImg {
 
 /* Imagen dde la card */
 main .containerCards .card .contImg img {
-  height: 80%;
+  height: 100%;
+  object-fit: contain;
 }
 
 main .containerCards .card .title {
@@ -255,4 +257,164 @@ main .containerCards .card .price {
 /* TODO: Footer */
 footer {
   grid-area: foot;
+}
+
+/* * Responsive */
+
+@media screen and (width <= 38rem) {
+  body {
+    padding: 1rem;
+    grid-template-rows: 50vh 1fr 20vh;
+    grid-template-columns: 100%;
+  }
+
+  /* TODO: Header */
+  header {
+    grid-template-rows: 50% 1fr;
+  }
+
+  /* TODO: containerLogo  */
+  .containerLogo {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+  }
+
+  /* ?: logo */
+  .containerLogo .logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* * Icono del logo */
+  .containerLogo .logo .icon {
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    font-size: 2rem;
+    padding: 2rem;
+  }
+
+  /* * Titulo */
+  .containerLogo .logo .title {
+    font-size: 2rem;
+  }
+
+  /* ?: Lista de iconos */
+  .containerLogo .list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .containerLogo .list .item {
+    font-size: 1.5rem;
+  }
+
+  .containerLogo .list,
+  .item i {
+    transition: all 0.5s linear;
+
+    &:hover {
+      transition: all 0.5s linear;
+      color: var(--color-botones);
+      cursor: pointer;
+    }
+  }
+
+  /* TODO: search */
+  .search {
+    width: 100%;
+    /* display: block; */
+  }
+
+  /* ? Contenedor de la busqueda */
+  .search .contBusqueda {
+    width: 100%;
+    height: 4rem;
+  }
+
+  /* * Button de busqueda */
+  .search .contBusqueda button {
+    width: 20%;
+  }
+
+  /* TODO: Main */
+  main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: 15vh 1fr;
+    gap: 1rem;
+  }
+
+  /* ?: Lista de Categorias */
+  main .list {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+}
+
+@media screen and (width > 38rem) and (width <= 48rem){
+  body {
+    padding: 2rem;
+    grid-template-rows: 30vh 1fr 20vh;
+    grid-template-columns: 100%;
+  }
+
+  /* TODO: Header */
+  header {
+    grid-template-rows: 50% 1fr;
+  }
+
+  /* TODO: containerLogo  */
+  .containerLogo {
+    display: flex;
+    align-items: baseline;
+    gap: .5rem;
+    /* align-items: center;*/
+  }
+
+  /* * Icono del logo */
+  .containerLogo .logo .icon {
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    font-size: 2rem;
+    padding: 2rem;
+  }
+
+  /* TODO: search */
+  .search {
+    width: 100%;
+    justify-content: center;
+    /* display: block; */
+  }
+
+  /* ? Contenedor de la busqueda */
+  .search .contBusqueda {
+    width: 50%;
+    height: 4rem;
+  }
+
+  /* TODO: Main */
+  main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: 15vh 1fr;
+    gap: 1rem;
+  }
+
+  /* ?: Lista de Categorias */
+  main .list {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
 }
