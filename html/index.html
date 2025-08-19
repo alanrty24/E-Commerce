@@ -33,14 +33,17 @@
         </div>
         <ul class="list">
           <li class="item"><i class="fa-solid fa-user"></i></li>
-          <li class="item"><i class="fa-solid fa-heart"></i></li>
-          <li class="item"><i class="fa-solid fa-cart-shopping"></i></li>
+          <li class="item" id="like"><i class="fa-solid fa-heart"></i></li>
+          <li class="item" id="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <!-- <span id="countCart"></span> -->
+          </li>
         </ul>
       </div>
       <div class="search">
         <div class="contBusqueda">
           <i class="fa-solid fa-magnifying-glass icon"></i>
-          <input type="text" placeholder="Search for products" />
+          <input type="text" placeholder="Search for products" id="inputSearch" />
           <button><i class="fa-solid fa-magnifying-glass icon"></i></button>
         </div>
       </div>
@@ -62,13 +65,17 @@
             John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain
             Bracelet
           </h3>
-          <h3 class="price">$695</h3>
+          <div class="infValor">
+            <h3 class="price">$695</h3>
+            <button class="add-car">Add to Card</button>
+          </div>
         </div> -->
       </div>
     </main>
-    <footer>
-
-    </footer>
+    <footer></footer>
+    <!-- <div class="factura">
+      
+    </div> -->
     <script src="/js/script.js"></script>
   </body>
 </html>

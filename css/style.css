@@ -11,6 +11,8 @@
   --color-fondo: white;
   --color-letras: #065084;
   --color-botones: #00caff;
+  --color-cart: #00d700;
+  --color-like: #f00;
 }
 
 body {
@@ -79,6 +81,7 @@ header {
 
 .containerLogo .list .item {
   font-size: 1.5rem;
+  position: relative;
 }
 
 .containerLogo .list,
@@ -90,6 +93,21 @@ header {
     color: var(--color-botones);
     cursor: pointer;
   }
+}
+
+.containerLogo .list .item #countCart {
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  background-color: var(--color-cart);
+  color: white;
+  border-radius: 1rem;
+  position: absolute;
+  top: -0.5rem;
+  right: -1rem;
 }
 
 /* TODO: search */
@@ -188,6 +206,10 @@ main .list .item {
   border-radius: 2rem;
 }
 
+.selectLike {
+  color: var(--color-like);
+}
+
 /* ?: Lista de Cards */
 main .containerCards {
   display: grid;
@@ -204,12 +226,13 @@ main .containerCards .card {
   overflow: hidden;
   border-radius: 1rem;
   display: grid;
-  grid-template-rows: 60% 25% 15%;
+  grid-template-rows: 50% 15% 10% 20%;
   grid-template-columns: 100%;
   grid-template-areas:
     "img"
     "title"
-    "price";
+    "price"
+    "infvalor";
   /* gap: 1rem;s */
   box-shadow: 0px 5px 10px 1px grey;
   position: relative;
@@ -246,18 +269,94 @@ main .containerCards .card .title {
   grid-area: title;
   margin: 0;
   font-size: 0.8rem;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem 0rem;
 }
 
 main .containerCards .card .price {
   grid-area: price;
+  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+main .containerCards .card .infValor {
+  grid-area: infvalor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 1rem;
+}
+
+main .containerCards .card .infValor .icon-heart {
+  font-size: 1.5rem;
+  transition: all .3s linear;
+  &:hover {
+    color: var(--color-like);
+    transition: all .3s linear;
+  }
+}
+
+main .containerCards .card .infValor .add-car {
+  border: none;
+  background-color: var(--color-letras);
+  color: var(--color-fondo);
+  height: 2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* animation: aparece 1s linear 1; */
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@keyframes aparece {
+  to {
+    transform: translateX(0);
+  }
+  from {
+    transform: translateX(10rem);
+  }
+}
+
+@keyframes desaparecer {
+  to {
+    transform: translateX(10rem);
+  }
+  from {
+    transform: translateX(0);
+  }
+}
+/* main .containerCards .card .price {
+  grid-area: price;
   margin: 0;
   text-align: center;
-}
+} */
 /* TODO: Footer */
 footer {
   grid-area: foot;
 }
+
+/* TODO: FACTURA */
+.factura{
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  top: 30%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  box-shadow: 0px 0px 1px gray;
+  border-radius: 1rem;
+  opacity: 100%;
+  overflow: hidden;
+}
+
+
 
 /* * Responsive */
 
@@ -277,7 +376,7 @@ footer {
   .containerLogo {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
     align-items: center;
     /* justify-content: space-between; */
     /* align-items: center; */
@@ -358,10 +457,9 @@ footer {
     width: 100%;
     flex-wrap: wrap;
   }
-
 }
 
-@media screen and (width > 38rem) and (width <= 48rem){
+@media screen and (width > 38rem) and (width <= 48rem) {
   body {
     padding: 2rem;
     grid-template-rows: 30vh 1fr 20vh;
@@ -377,7 +475,7 @@ footer {
   .containerLogo {
     display: flex;
     align-items: baseline;
-    gap: .5rem;
+    gap: 0.5rem;
     /* align-items: center;*/
   }
 
@@ -416,5 +514,4 @@ footer {
     width: 100%;
     flex-wrap: wrap;
   }
-
 }
